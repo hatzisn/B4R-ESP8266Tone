@@ -1,0 +1,87 @@
+﻿Build1=Default,B4RDev
+Group=Default Group
+Library1=rcore
+Library2=resp8266
+Module1=ESP8266Tone
+NumberOfFiles=0
+NumberOfLibraries=2
+NumberOfModules=1
+Version=3.5
+@EndOfDesignText@
+
+#Region Project Attributes
+	#AutoFlushLogs: True
+	#CheckArrayBounds: True
+	#StackBufferSize: 300
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'Public variables can be accessed from all modules.
+	Public Serial1 As Serial
+	Dim d1p As D1Pins
+	Dim D2 As Pin
+
+End Sub
+
+Private Sub AppStart
+	Serial1.Initialize(9600)
+	Log("AppStart")
+	D2.Initialize(d1p.D2, D2.MODE_OUTPUT)
+	D2.DigitalWrite(False)
+	Log("Waiting 3 seconds")
+	Delay(3000)
+	For t = 1 To 3
+		Log("Playing_Tone")
+		ESP8266Tone.Play(D2, 1100, 600)
+		Delay (1000)
+	Next
+	AddLooper("Trial")
+End Sub
+
+Sub Trial
+	Delay(5000)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_A3, 800)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_B3, 800)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_C4, 800)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_A3, 400)
+	Delay(300)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_A3, 800)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_B3, 800)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_C4, 800)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_A3, 400)
+	Delay(300)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_C4, 800)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_D4, 800)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_E4, 800)
+	Delay(300)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_C4, 800)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_D4, 800)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_E4, 800)
+	Delay(300)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_E4, 500)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_F4, 500)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_E4, 500)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_D4, 500)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_C4, 800)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_A3, 500)
+	Delay(300)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_E4, 500)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_F4, 500)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_E4, 500)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_D4, 500)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_C4, 800)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_A3, 500)
+	Delay(300)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_B3, 800)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_E4, 800)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_A3, 1200)
+	Delay(300)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_B3, 800)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_E4, 800)
+	ESP8266Tone.Play(D2, ESP8266Tone.NOTE_A3, 1200)
+End Sub
+
+
+
+
